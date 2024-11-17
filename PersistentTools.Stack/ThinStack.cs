@@ -91,8 +91,17 @@ public class ThinStack : IStack
     /// <param name="content">The content to add to the stack</param>
     public void Push(string content)
     {
+        Push([content]);
+    }
+
+    /// <summary>
+    /// Push content to the stack
+    /// </summary>
+    /// <param name="content">The content to add to the stack</param>
+    public void Push(string[] content)
+    {
         int count = Count;
-        File.WriteAllLines($"{Path}.{count}", [content]);
+        File.WriteAllLines($"{Path}.{count}", content);
 
         count++;
         ModifyCount(count);
